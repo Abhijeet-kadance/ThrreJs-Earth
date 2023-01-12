@@ -18,11 +18,12 @@ document.body.appendChild(renderer.domElement)
 // Creating a shpere
 
 const sphere = new THREE.Mesh(new THREE.SphereGeometry(5, 50, 50), 
-  new THREE.ShaderMaterial({
+  //new THREE.ShaderMaterial
+  new THREE.MeshBasicMaterial({
     // color: 0xFF0000 
-    // map: new THREE.TextureLoader().load('./image/globe.jpg')
-    vertexShader,
-    fragmentShader
+    map: new THREE.TextureLoader().load('./image/globe.jpg')
+    // vertexShader,
+    // fragmentShader
   }))
 
 //console.log(sphere)
@@ -30,7 +31,8 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(5, 50, 50),
 
 // 
 scene.add(sphere)
-camera.position.z = 15
+camera.position.z = 16
+
 function animate(){
   requestAnimationFrame(animate)
   renderer.render(scene, camera)
